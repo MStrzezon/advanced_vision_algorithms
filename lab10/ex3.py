@@ -58,13 +58,8 @@ def brief_descriptor(image, keypoints):
     positions = np.loadtxt("resources/orb_descriptor_positions.txt").astype(np.int8)
     positions_0 = positions[:, :2]
     positions_1 = positions[:, 2:]
-    # Rozmiar wycinka obrazu
-    patch_size = 31
-
-    # Rozmycie filtrem Gaussa
     image = cv2.GaussianBlur(image, (5, 5), 0)
 
-    # Inicjalizacja deskryptora
     descriptor = np.zeros((len(keypoints), 256), dtype=np.uint16)
     for i, keypoint in enumerate(keypoints):
         x, y = keypoint[0]
@@ -92,15 +87,12 @@ def get_hamming_distance(arr1, arr2):
     return hamming(arr1, arr2) * len(arr1)
 
 def fast_detector_harris(image):
-    # Konfiguracja parametrów detektora FAST
     threshold = 40
     n = 3
 
-    # Konfiguracja parametrów dla miary Harrisa
     k = 0.05
     window_size = 3
 
-    # Detekcja punktów charakterystycznych FAST
     keypoints = np.zeros(image.shape, dtype=np.float32)
     harris_matrix = H(image, 7)
     for i in range(n, image.shape[0] - n):
@@ -108,16 +100,13 @@ def fast_detector_harris(image):
             center_pixel = image[i, j]
             consecutive_pixels = []
 
-            # Sprawdzenie 16 pikseli wokół centralnego piksela
             for dx, dy in [(0, n), (n, 0), (0, -n), (-n, 0), (n, n), (-n, -n), (n, -n), (-n, n)]:
                 if abs(int(center_pixel) - image[i + dy, j + dx]) > threshold:
                     consecutive_pixels.append(True)
                 else:
                     consecutive_pixels.append(False)
 
-            # Sprawdzenie, czy piksele spełniają warunek
             if sum(consecutive_pixels) >= 7:
-                # Obliczenie miary Harrisa dla piksela
                 keypoints[i, j] = harris_matrix[i, j]
 
     return keypoints

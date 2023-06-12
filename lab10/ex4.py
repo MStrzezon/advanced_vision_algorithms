@@ -9,13 +9,9 @@ right_panorama = read_gray('resources/right_panorama.jpg')
 
 
 def show_characteristic_points(img):
-    # Initiate ORB detector
     orb = cv2.ORB_create()
-    # find the keypoints with ORB
     kp = orb.detect(img, None)
-    # compute the descriptors with ORB
     kp, des = orb.compute(img, kp)
-    # draw only keypoints location,not size and orientation
     img = cv2.drawKeypoints(img, kp, None, color=(0, 255, 0), flags=0)
     plt.imshow(img)
     plt.show()
@@ -29,12 +25,6 @@ def match(img1, img2):
     matches = bf.match(desL, desR)
     matches = sorted(matches, key=lambda x: x.distance)
     best_matches = matches[:10]
-    # matched_image = cv2.drawMatches(img1,
-    #                                 kp1, img2, kp2, best_matches, None,
-    #                                 matchColor=(0, 255, 0), matchesMask=None,
-    #                                 singlePointColor=(255, 0, 0), flags=0)
-    # plt.imshow(matched_image)
-    # plt.show()
     keypointsL = np.float32([kp.pt for kp in keypointsL])
     keypointsR = np.float32([kp.pt for kp in keypointsR])
     ptsA = np.float32([keypointsL[m.queryIdx] for m in matches])
@@ -47,6 +37,4 @@ def match(img1, img2):
     plt.imshow(result, cmap='gray')
     plt.show()
 
-# show_characteristic_points(left_panorama)
-# show_characteristic_points(right_panorama)
 match(left_panorama, right_panorama)

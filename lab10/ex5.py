@@ -3,8 +3,6 @@ import cv2
 def test_shift(img1, img2):
     sift = cv2.xfeatures2d.SIFT_create()
 
-
-
     img1_kp, img1_des = sift.detectAndCompute(img1, None)
     img2_kp, img2_des = sift.detectAndCompute(img2, None)
 
@@ -27,5 +25,4 @@ def test_fontanna_pow():
     test_shift(fontanna1, fontanna_pow)
 
 if __name__ == '__main__':
-    # test_fontanna_normal()
     test_fontanna_pow()
