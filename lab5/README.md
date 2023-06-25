@@ -9,3 +9,6 @@
 | 4               | [extra2.py](extra2.py)                                                   | Motion direction detection and object classification using optical flow         |
 | -               | [load_flo.py](load_flo.py)                                               | Utils for neural networks                                                       |
 
+## Resources
+1. [LiteFlowNet](https://github.com/sniklaus/pytorch-liteflownet)
+2. [SpyNet](https://github.com/sniklaus/pytorch-spynet)
