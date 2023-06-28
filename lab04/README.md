@@ -12,8 +12,6 @@
 ## Requirements
 
 1. `vid1_IR.avi` - thermovision video:
-
-![frame_003090.png](resources%2Fframes%2Fframe_003090.png)
 ## Probabilistic detector guide
 You need to run 3 steps:
 1. Save samples and example frame
