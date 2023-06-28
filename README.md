@@ -9,6 +9,7 @@ stereo vision, and more.
 
 1. [Overview](#overview)
 2. [Installation](#installation)
+3. [Required datasets](#required-datasets)
 3. [Usage](#usage)
 4. [License](#license)
 
@@ -61,6 +62,17 @@ conda create --name <env> --file requirements.txt
 ```bash
 conda activate <env>
 ```
+## Required datasets
+You need to have downloaded sequences in folder common:
+- DAVIS 240C dataset: https://rpg.ifi.uzh.ch/datasets/davis/shapes_rotation.zip.
+- KITTI dataset: http://www.cvlibs.net/datasets/kitti/eval_odometry.php (image_2 -> 650 x png)
+- highway dataset
+- Jump dataset
+- Office dataset
+- Pedestrians dataset
+- Sunshade dataset
+
+Last five datasets you can find in the folder `datasets`. Unzip to the `common` folder
 ## Usage
 After completing the installation, you can run the labs. Each folder has own README.md file with instructions and description of files.
 
