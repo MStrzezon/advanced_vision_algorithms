@@ -11,7 +11,6 @@ stereo vision, and more.
 2. [Installation](#installation)
 3. [Required datasets](#required-datasets)
 3. [Usage](#usage)
-4. [License](#license)
 
 ## Overview
 
@@ -76,8 +75,5 @@ Last five datasets you can find in the folder `datasets`. Unzip to the `common` 
 ## Usage
 After completing the installation, you can run the labs. Each folder has own README.md file with instructions and description of files.
 
-## License
-This project is licensed under the [MIT](https://choosealicense.com/licenses/mit/) License. Feel free to use and modify the code as per the terms specified in the license.
-I hope that this repository will serve as an invaluable resource for students interested in advanced vision algorithms. Enjoy exploring the fascinating world of computer vision!
 
 
